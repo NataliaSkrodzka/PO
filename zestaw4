@@ -1,0 +1,37 @@
+public class zestaw4 {
+    public static void generujTablice (int n, int minWartosc, int maxWartosc){
+        for (int i=0;i<n;i++){
+            int num=(int)(Math.random()*(maxWartosc-minWartosc+1)+minWartosc);
+            System.out.print(num+"  ");
+        }
+    }
+    public static void generujZakres (int n, double minWartosc, double maxWartosc){
+        double num = minWartosc;
+        double krok = (maxWartosc-minWartosc)/(n-1);
+        System.out.print(minWartosc+ "  ");
+
+        for (int i=0;i<n-2;i++){
+            num+=krok;
+            System.out.print(num+"  ");
+        }
+        System.out.println(maxWartosc);
+    }
+    public static void wypiszTablice(int[] tab, int n, int m) {
+        int j =0;
+        while (j>tab.length)
+                System.out.print(tab[j] + "   ");
+            }
+            System.out.print("\n");
+        }
+    }
+    public static void main(String[] args) {
+        System.out.println("Tablica: ");
+        generujTablice(10,3,10);
+        System.out.println(" ");
+        System.out.println("macierz:");
+        wypiszTablice(new int[]{1,2,3,4,5,6},3,4);
+        System.out.println("Zakres: ");
+        generujZakres(7,5,20);
+
+    }
+}
