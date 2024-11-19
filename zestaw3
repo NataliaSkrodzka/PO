@@ -42,7 +42,7 @@ public class Zestaw3 {
             for(int j=2;j<i;j++) {
                 if (i%j==0){
                     k++;
-                    }
+                }
             }
             if (k==0){
                 System.out.println(i);
@@ -60,10 +60,10 @@ public class Zestaw3 {
         if (variant==1){
             for (int i=1;i<=n;i++) {
                 for (int j=1;j<=i;j++) {
-                System.out.print("*");
-            }
-            System.out.print("\n");
+                    System.out.print("*");
                 }
+                System.out.print("\n");
+            }
         }
         else if (variant==2) {
             for (int i=1;i<=n;i++) {
@@ -171,38 +171,38 @@ public class Zestaw3 {
         int k=0;
         boolean czyTakaSama;
         for (int i=0;i<wyraz.length()/2;i++) {
-                if (wyraz.charAt(i)!=wyraz.charAt(wyraz.length()-1-i)) {
-                    k++;
-                }
+            if (wyraz.charAt(i)!=wyraz.charAt(wyraz.length()-1-i)) {
+                k++;
             }
+        }
         czyTakaSama= k == 0;
-            return czyTakaSama;
+        return czyTakaSama;
     }
     static void trojkatPascala (int n) {
         for (int i = 0; i < 1; i++) {
             for (int j = 2; j <= n - i; j++){
                 System.out.print(" ");
-        }
+            }
             System.out.println(1);
-    }
+        }
         for (int i = 1; i < 2; i++) {
             for (int j = 2; j <= n - i; j++){
                 System.out.print(" ");
             }
             System.out.println(1+" "+1);
         }
-            for (int i = 2; i < n; i++) {
+        for (int i = 2; i < n; i++) {
             for (int j=2;j<=n-i;j++) {
                 System.out.print(" ");
             }
             System.out.print(1+ " ");
-                    for (int j = 1; j < i; j++) {
+            for (int j = 1; j < i; j++) {
 
-                        System.out.print(dwumianNewtona(i, j)+" ");
-                    }
+                System.out.print(dwumianNewtona(i, j)+" ");
+            }
             System.out.println(1);
-                }
         }
+    }
 
 
 
@@ -213,25 +213,26 @@ public class Zestaw3 {
         int l;
         int o=0;
         int ostatnia=n;
-            int m=1;
-            for (int i=0;i<ileCyfr(n)/2;i++) {
-                int pierwsza=n;
-                    while (pierwsza > 9 * m) {
-                        pierwsza = pierwsza / 10;
-                        if (pierwsza<10) {
-                            k = pierwsza;
-                        }
-                        else {
-                            k=k%10;}
-                    }
-                    l=ostatnia%10;
+        int m=1;
+        for (int i=0;i<ileCyfr(n)/2;i++) {
+            int pierwsza=n;
+            while (pierwsza >= 10 * m) {
+                pierwsza /= 10;
+                }
+            if(pierwsza<10)
+            {k = pierwsza;}
+            else{
+                k=pierwsza%10;
+            }
+
+            l=ostatnia%10;
             if(k!=l) {
                 o++;
             }
-                czyTakaSama=o==0;
-                m=m*10;
-                ostatnia=n/10;
-            }
+            czyTakaSama=o==0;
+            m*=10;
+            ostatnia/=10;
+        }
         return czyTakaSama;
     }
     static int ileCyfr (int n) {
@@ -245,22 +246,22 @@ public class Zestaw3 {
     static boolean czyDoskonala (int n) {
         int k=0;
         for (int i=1;i<n;i++) {
-                if (n%i==0){
-                    k+=i;
-                }
+            if (n%i==0){
+                k+=i;
+            }
         }
         return k==n;
     }
     static boolean czyPierwsza (int n) {
         boolean czyPierwsza = n != 1 && n != 0;
         for (int i = 2; i < n; i++) {
-                if (n % i == 0) {
-                    czyPierwsza = false;
-                    break;
-                }
+            if (n % i == 0) {
+                czyPierwsza = false;
+                break;
             }
-            return czyPierwsza;
         }
+        return czyPierwsza;
+    }
     static int NWD (int a, int b) {
         int d=1;
         if (a>b) {
@@ -287,7 +288,7 @@ public class Zestaw3 {
         int ile  = myObj.nextInt();
         int[] tablica= new int[ile];
         for (int i=1;i<=ile;i++) {
-                System.out.println("Podaj " + i + " liczbe: ");
+            System.out.println("Podaj " + i + " liczbe: ");
             int jaka  = myObj.nextInt();
             tablica[i-1]=jaka;
         }
@@ -301,10 +302,9 @@ public class Zestaw3 {
             System.out.println(i);
         }
         for (int i: tab) {
-        System.out.print(i + " ");
+            System.out.print(i + " ");
         }
         System.out.print("\n");
-        if (tab.length>2) {
             int m = 0;
             while (m<tab.length) {
                 for (int i = m + 1; i < tab.length; i++) {
@@ -312,7 +312,16 @@ public class Zestaw3 {
                 }
                 m++;
             }
-        }
+        System.out.print("\n");
+                for(int i=0;i<tab.length;i++){
+                    for(int j=0;j<tab.length;j++){
+                        if(i!=j){
+                            System.out.print(tab[j] +" ");
+                        }
+                    }
+                    System.out.print("\n");
+                }
+
     }
 
 
@@ -356,7 +365,7 @@ public class Zestaw3 {
         System.out.println("Trojkat Pascala: ");
         trojkatPascala(7);
         System.out.println("Czy palindrom liczba: ");
-        System.out.println(czyPalindrom(1128211));
+        System.out.println(czyPalindrom(111282111));
         System.out.println("ile cyfr: ");
         System.out.println(ileCyfr(349));
         System.out.println("Czy doskonala: ");
