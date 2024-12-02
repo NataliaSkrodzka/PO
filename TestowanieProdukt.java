@@ -12,5 +12,14 @@ public class TestowanieProdukt {
         produkt2.usunZMagazynu(49);
         produkt1.wyswietlInformacje();
         produkt2.wyswietlInformacje();
+        KoszykZakupowy koszyk1 = new KoszykZakupowy();
+        koszyk1.dodajProdukt(produkt1,8);
+        koszyk1.dodajProdukt(produkt2,8);
+        koszyk1.wyswietlZawartoscKoszyka();
+        produkt1.wyswietlInformacje();
+        produkt2.wyswietlInformacje();
+        koszyk1.dodajProdukt(produkt2,11);
+        System.out.println(koszyk1.obliczCalkowitaWartosc());
+
     }
 }
