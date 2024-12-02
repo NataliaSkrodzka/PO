@@ -7,6 +7,12 @@ public class Produkt {
         cena=Cena;
         iloscNaMagazynie=IloscNaMagazynie;
     }
+    public String getNazwa() {
+        return nazwa;
+    }
+    public double getCena() {
+        return cena;
+    }
     public void wyswietlInformacje(){
         System.out.println("Nazwa: "+nazwa+" Cena: "+cena+" Ilość na magazynie: "+iloscNaMagazynie);
     }
