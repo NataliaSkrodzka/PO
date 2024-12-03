@@ -2,10 +2,10 @@ public class Produkt {
     String nazwa;
     double cena;
     int iloscNaMagazynie;
-    public Produkt(String Nazwa,double Cena,int IloscNaMagazynie) {
-        nazwa=Nazwa;
-        cena=Cena;
-        iloscNaMagazynie=IloscNaMagazynie;
+    public Produkt(String nazwa,double cena,int iloscNaMagazynie) {
+        this.nazwa=nazwa;
+        this.cena=cena;
+        this.iloscNaMagazynie=iloscNaMagazynie;
     }
     public String getNazwa() {
         return nazwa;
