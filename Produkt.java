@@ -13,21 +13,36 @@ public class Produkt {
     public double getCena() {
         return cena;
     }
-    public void wyswietlInformacje(){
-        System.out.println("Nazwa: "+nazwa+" Cena: "+cena+" Ilość na magazynie: "+iloscNaMagazynie);
-    }
-    public int dodajDoMagazynu(int dodaj){
-        iloscNaMagazynie+=dodaj;
+    public double getIloscNaMagazynie() {
         return iloscNaMagazynie;
     }
-    public int usunZMagazynu(int usun){
+    @Override
+    public String toString() {
+        return "Nazwa: "+nazwa+" cena: "+cena+" ilość na magazynie: "+iloscNaMagazynie;
+    }
+    public void dodajDoMagazynu(int dodaj){
+        iloscNaMagazynie+=dodaj;
+    }
+//    public void dodajProdukt(Produkt produkt,int ile) {
+//        if (produkt.iloscNaMagazynie>=ile){
+//            if (magazyn.containsKey(produkt)){
+//                produkty.replace(produkt,produkty.get(produkt)+ile);
+//            }
+//            else {
+//                magazyn.put(produkt, ile);
+//            }
+//        }
+//        else {
+//            System.out.println("Niewystarczajaca ilosc produktów");
+//        }
+//    }
+    public void usunZMagazynu(int usun){
         if (iloscNaMagazynie>=usun) {
             iloscNaMagazynie -= usun;
         }
         else{
             System.out.println("Na magazynie jest tylko "+iloscNaMagazynie+" sztuk");
         }
-        return iloscNaMagazynie;
     }
 
 }
