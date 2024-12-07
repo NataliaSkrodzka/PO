@@ -6,8 +6,13 @@ public class KoszykZakupowy {
     public KoszykZakupowy() {
         this.produkty = new HashMap<>();
     }
+
+    public HashMap<Produkt, Integer> getProdukty() {
+        return produkty;
+    }
+
     public void dodajProdukt(Produkt produkt,int ile) {
-        if (produkt.iloscNaMagazynie>=ile){
+        if (produkt.getIloscNaMagazynie() >=ile){
             if (this.produkty.containsKey(produkt)){
                 produkty.replace(produkt,produkty.get(produkt)+ile);
             }
