@@ -4,13 +4,12 @@ import java.util.ArrayList;
 
 public class Sklep {
     ArrayList<Produkt> produkty;
-    String nazwaSklepu;
-    Magazyn magazynSklepu;
-    LocalDate dataPowstania;
+    private String nazwaSklepu;
+    private Magazyn magazynSklepu;
+    private LocalDate dataPowstania;
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    String zformatowanaData = dataPowstania.format(myFormatObj);
 
-    public Sklep(String nazwaSklepu, Magazyn magazynSklepu, CharSequence zformatowanaData) {
+    public Sklep(String nazwaSklepu, Magazyn magazynSklepu, String zformatowanaData) {
         this.produkty = new ArrayList<>();
         this.nazwaSklepu = nazwaSklepu;
         this.magazynSklepu = magazynSklepu;
