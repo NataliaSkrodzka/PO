@@ -5,6 +5,11 @@ public class Magazyn {
     public Magazyn() {
         this.magazyn = new HashMap<>();
     }
+
+    public HashMap<Produkt, Integer> getMagazyn() {
+        return magazyn;
+    }
+
     @Override
     public String toString(){
         StringBuilder wynik= new StringBuilder();
