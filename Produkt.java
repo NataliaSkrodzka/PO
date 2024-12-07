@@ -1,11 +1,18 @@
 public class Produkt {
-    String nazwa;
-    double cena;
-    int iloscNaMagazynie;
+    private String nazwa;
+    private double cena;
+    private int iloscNaMagazynie;
+
     public Produkt(String nazwa,double cena,int iloscNaMagazynie) {
         this.nazwa=nazwa;
         this.cena=cena;
         this.iloscNaMagazynie=iloscNaMagazynie;
+    }
+    public void setNazwa(String nazwa) {
+        this.nazwa = nazwa;
+        if(nazwa==null || nazwa.isEmpty()){
+            throw new IllegalArgumentException("Nazwa nie może być pusta");
+        }
     }
     public String getNazwa() {
         return nazwa;
@@ -23,7 +30,7 @@ public class Produkt {
     public void dodajDoMagazynu(int dodaj){
         iloscNaMagazynie+=dodaj;
     }
-//    public void dodajProdukt(Produkt produkt,int ile) {
+    //    public void dodajProdukt(Produkt produkt,int ile) {
 //        if (produkt.iloscNaMagazynie>=ile){
 //            if (magazyn.containsKey(produkt)){
 //                produkty.replace(produkt,produkty.get(produkt)+ile);
@@ -43,6 +50,24 @@ public class Produkt {
         else{
             System.out.println("Na magazynie jest tylko "+iloscNaMagazynie+" sztuk");
         }
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Produkt other = (Produkt) obj;
+        if (nazwa == null) {
+            if (other.nazwa != null)
+                return false;
+        } else if (!nazwa.equals(other.nazwa))
+            return false;
+        if (Double.doubleToLongBits(cena) != Double.doubleToLongBits(other.cena))
+            return false;
+        return true;
     }
 
 }
