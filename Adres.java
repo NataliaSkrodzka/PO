@@ -76,5 +76,15 @@ public class Adres {
     public boolean przed(int kodPocztowy){
         return this.kodPocztowy < kodPocztowy;
     }
+    @Override
+    public int hashCode() {
+        int result = 17; // Można zacząć od dowolnej liczby niezerowej
+        result = 31 * result + numerDomu;
+        result = 31 * result + numerMieszania;
+        result = 31 * result + kodPocztowy;
+        result = 31 * result + (ulica != null ? ulica.hashCode() : 0);
+        result = 31 * result + (miasto != null ? miasto.hashCode() : 0);
+        return result;
+    }
 
 }
