@@ -41,4 +41,11 @@ public class Platnosc {
             return false;
         return true;
     }
+    @Override
+    public int hashCode() {
+        int result = 17; // Można zacząć od dowolnej liczby niezerowej
+        result = 31 * result + (statusPlatnosci != null ? statusPlatnosci.hashCode() : 0);
+        result = 31 * result + Double.hashCode(kwota);
+        return result;
+    }
 }
