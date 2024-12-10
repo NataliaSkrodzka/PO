@@ -69,5 +69,12 @@ public class Produkt {
             return false;
         return true;
     }
+    @Override
+    public int hashCode() {
+        int result = 17; // Można zacząć od dowolnej liczby niezerowej
+        result = 31 * result + (nazwa != null ? nazwa.hashCode() : 0);
+        result = 31 * result + Double.hashCode(cena);
+        return result;
+    }
 
 }
