@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class Magazyn {
     private HashMap<Produkt, Integer> magazyn;
-    public Magazyn() {
+    public Magazyn(HashMap<Produkt,Integer> magazyn) {
         this.magazyn = new HashMap<>();
     }
 
