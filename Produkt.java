@@ -1,7 +1,10 @@
-public class Produkt {
+import java.util.HashMap;
+
+public class Produkt implements InterfaceProdukt {
     private String nazwa;
     private double cena;
     private int iloscNaMagazynie;
+    private Magazyn zKtoregoMagazynu;
 
     public Produkt(String nazwa,double cena,int iloscNaMagazynie) {
         this.nazwa=nazwa;
@@ -20,17 +23,37 @@ public class Produkt {
     public double getCena() {
         return cena;
     }
-    public double getIloscNaMagazynie() {
+    public int getIloscNaMagazynie() {
         return iloscNaMagazynie;
     }
+
+    public Magazyn getzKtoregoMagazynu() {
+        return zKtoregoMagazynu;
+    }
+
+    public void setCena(double cena) {
+        this.cena = cena;
+    }
+
+    public void setIloscNaMagazynie(int iloscNaMagazynie) {
+        this.iloscNaMagazynie = iloscNaMagazynie;
+    }
+
+    public void setzKtoregoMagazynu(Magazyn zKtoregoMagazynu) {
+        this.zKtoregoMagazynu = zKtoregoMagazynu;
+    }
+
     @Override
     public String toString() {
         return "Nazwa: "+nazwa+" cena: "+cena+" ilość na magazynie: "+iloscNaMagazynie;
     }
-    public void dodajDoMagazynu(int dodaj){
+    @Override
+    public void dodajDoMagazynu(HashMap<Produkt,Integer> magazyn,Produkt produkt,int dodaj){
+        magazyn.put(produkt,dodaj);
         iloscNaMagazynie+=dodaj;
     }
-    //    public void dodajProdukt(Produkt produkt,int ile) {
+    //@Override
+    //    public void dodajProdukt(Magazyn magazyn,Produkt produkt,int ile) {
 //        if (produkt.iloscNaMagazynie>=ile){
 //            if (magazyn.containsKey(produkt)){
 //                produkty.replace(produkt,produkty.get(produkt)+ile);
@@ -43,6 +66,7 @@ public class Produkt {
 //            System.out.println("Niewystarczajaca ilosc produktów");
 //        }
 //    }
+    @Override
     public void usunZMagazynu(int usun){
         if (iloscNaMagazynie>=usun) {
             iloscNaMagazynie -= usun;
