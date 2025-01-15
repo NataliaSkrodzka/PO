@@ -1,4 +1,4 @@
-public class Platnosc {
+public class Platnosc implements InterfacePlatnosc {
     private double kwota;
     private String statusPlatnosci;
     public Platnosc(Zamowienie zamowienie) {
@@ -18,7 +18,7 @@ public class Platnosc {
     public void setStatusPlatnosci(String statusPlatnosci) {
         this.statusPlatnosci = statusPlatnosci;
     }
-
+    @Override
     public void zaplac(Zamowienie zamowienie) {
         zamowienie.platnosc = "Opłacone";
         this.kwota = 0;
