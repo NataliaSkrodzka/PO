@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Sklep {
+public class Sklep implements InterfaceSklep{
     ArrayList<Produkt> produkty;
     private String nazwaSklepu;
     private Magazyn magazynSklepu;
@@ -22,16 +22,48 @@ public class Sklep {
         }
     }
 
+    public ArrayList<Produkt> getProdukty() {
+        return produkty;
+    }
+    public void setProdukty(ArrayList<Produkt> produkty) {
+        this.produkty = produkty;
+    }
+    public String getNazwaSklepu() {
+        return nazwaSklepu;
+    }
+    public void setNazwaSklepu(String nazwaSklepu) {
+        this.nazwaSklepu = nazwaSklepu;
+    }
+    public Magazyn getMagazynSklepu() {
+        return magazynSklepu;
+    }
+    public void setMagazynSklepu(Magazyn magazynSklepu) {
+        this.magazynSklepu = magazynSklepu;
+    }
+    public LocalDate getDataPowstania() {
+        return dataPowstania;
+    }
+    public void setDataPowstania(LocalDate dataPowstania) {
+        this.dataPowstania = dataPowstania;
+    }
+
+
     public void dodajProdukt(Produkt p) {
         this.produkty.add(p);
     }
-
+    @Override
     public void wyswietlOferty() {
-        for (Produkt p : produkty) {
-            System.out.println(p.getNazwa());
+        if(this.produkty.size() == 0){
+            System.out.println("Jeszcze nie ma ofert w sklepie");
+        }
+        else {
+            System.out.println("Oferty sklepu: ");
+            for (Produkt p : produkty) {
+                System.out.println(p.getNazwa());
+            }
         }
     }
-
+    @Override
     public String wyszukajProduktu(String nazwa) {
         nazwa = nazwa.toLowerCase();
         for (Produkt p : produkty) {
@@ -41,7 +73,7 @@ public class Sklep {
         }
         return null;
     }
-
+    @Override
     public void zakupy(KoszykZakupowy koszykZakupowy,Produkt p, int ilosc) {
         koszykZakupowy.dodajProdukt(p,ilosc);
     }
