@@ -9,7 +9,7 @@ public class TestGeneryczne {
         }
         T max=t[0];
         for (int i = 1; i < t.length; i++) {
-            if(max.compareTo(t[i])>0){
+            if(t[i].compareTo(max)>0){
                 max=t[i];
             }
         }
