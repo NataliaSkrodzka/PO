@@ -32,6 +32,15 @@ public class Dog extends Animal {
         result.setFirst(minDog);
         result.setSecond(maxDog);
     }
+
+    public static <T extends Animal> T findMax(T element1, T element2) {
+        T max=element1;
+        if(element2.compareTo(element1)>0) {
+            max=element2;
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         Dog[] dogs = new Dog[3];
         Dog dog1 = new Dog("Dog1", 1);
@@ -44,5 +53,7 @@ public class Dog extends Animal {
         findMinMaxAge(dogs, result);
         System.out.println(result.getFirst());
         System.out.println(result.getSecond());
+        System.out.println(findMax(dog2,dog1));
+
     }
 }
