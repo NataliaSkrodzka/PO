@@ -1,22 +1,29 @@
+import java.util.ArrayList;
+
 public class Stos<T> implements Stack<T>{
+    ArrayList<T> list;
+
+    public Stos(){
+        list = new ArrayList<T>();
+    }
 
     @Override
-    public void push(T item) {
-
+    public void push(T item){
+        list.add(item);
     }
 
     @Override
     public T pop() {
-        return null;
+        return list.removeLast();
     }
 
     @Override
     public T peek() {
-        return null;
+        return list.getLast();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return list.isEmpty();
     }
 }
