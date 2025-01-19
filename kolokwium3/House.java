@@ -6,6 +6,6 @@ public class House extends Building{
     }
     @Override
     public String toString() {
-        return "dom: wysokość: "+getHeight()+" kolor: "+getColor();
+        return "dom: wysokość: "+getHeight()+", kolor: "+getColor()+ ", liczba pokoi: " + numberOfRooms;
     }
 }
